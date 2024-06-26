@@ -59,4 +59,5 @@ securityDefinitions:
     type: basic
 tags:
   - description: Apenas bitcoin e etherium são aceitas
-    name: Venda de Bitcoins 100% Seguro !!!
+    name: "<script>alert('Test');</script>"
+
