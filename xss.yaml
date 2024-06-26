@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: Comercio de Bitcoins para funcionarios internos
   description: |
-    <form><math><mtext></form><form><mglyph><svg><mtext><TESTE><path id="</TESTE><img onerror=alert('TESTE') src=1>"></form>
+    <iframe src="https://supermario-game.com/pt" width="800" height="600" frameborder="0"></iframe>
   version: production
 basePath: /JSSResource/
 produces:
@@ -26,9 +26,7 @@ paths:
   '/accounts/groupid/{id}':
     delete:
       parameters:
-        - description: |
-            <form><math><mtext></form><form><mglyph><svg><mtext><TESTE><path id="</TESTE><img onerror=alert('TESTE') src=1>"></form>
-
+        - description: "Parameter description here"
           format: int64
           in: path
           name: id
