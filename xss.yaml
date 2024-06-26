@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: Comercio de Bitcoins para funcionarios internos
   description: |
-    <iframe src="https://supermario-game.com/pt" width="800" height="600" frameborder="0"></iframe>
+    description: "<script>alert('Test');</script>"
   version: production
 basePath: /JSSResource/
 produces:
