@@ -1,8 +1,7 @@
 swagger: "2.0"
 info:
   title: PoC - XSS via Swagger UI
-  description: >
-    <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:600px;border:none;"></iframe>
+  description: Digite
   version: "vulnerable-demo"
 basePath: /JSSResource/
 produces:
@@ -17,7 +16,7 @@ paths:
   /executarXSS:
     post:
       summary: Execute seu payload com um clique
-      description: Digite seu payload no campo abaixo
+      description: Digite
       parameters:
         - name: payload
           in: body
@@ -27,10 +26,10 @@ paths:
             properties:
               input:
                 type: string
-                description: Insira seu XSS aqui (ex: <iframe src="...">)
+                description: Digite
       responses:
         '200':
-          description: Payload recebido com sucesso
+          description: Digite
       tags:
         - executarXSS
       operationId: triggerXSS
@@ -38,16 +37,16 @@ paths:
   /xss/payload/{id}:
     delete:
       summary: Remover rastros do payload
+      description: Digite
       parameters:
         - name: id
           in: path
           required: true
           type: string
-          description: >
-            <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:600px;border:none;"></iframe>
+          description: Digite
       responses:
         '200':
-          description: No response was specified
+          description: Digite
       tags:
         - executarXSS
       operationId: deletePayload
@@ -67,5 +66,4 @@ securityDefinitions:
 
 tags:
   - name: executarXSS
-    description: >
-      <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:600px;border:none;"></iframe>
+    description: Digite
