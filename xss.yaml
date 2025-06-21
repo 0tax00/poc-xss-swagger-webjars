@@ -17,12 +17,24 @@ paths:
   /executarXSS:
     post:
       summary: Execute seu payload com um clique
+      description: Digite seu payload no campo abaixo
+      parameters:
+        - name: payload
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              input:
+                type: string
+                description: Insira seu XSS aqui (ex: <iframe src=...>)
       responses:
         '200':
-          description: No response was specified
+          description: Payload recebido com sucesso
       tags:
         - executarXSS
       operationId: triggerXSS
+
   '/xss/payload/{id}':
     delete:
       summary: Remover rastros do payload
@@ -39,6 +51,7 @@ paths:
       tags:
         - executarXSS
       operationId: deletePayload
+
 definitions:
   Payload:
     properties:
@@ -47,9 +60,11 @@ definitions:
         type: integer
       name:
         type: string
+
 securityDefinitions:
   basicAuth:
     type: basic
+
 tags:
   - name: executarXSS
     description: >
