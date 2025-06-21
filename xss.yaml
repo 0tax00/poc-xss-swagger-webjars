@@ -6,58 +6,85 @@ info:
   version: vulnerable-demo
 basePath: /JSSResource/
 produces:
-  - application/xml
   - application/json
 consumes:
-  - application/xml
   - application/json
 security:
   - basicAuth: []
 paths:
   /executarXSS:
     post:
-      responses:
-        '200':
-          description: No response was specified
-      tags:
-        - executarXSS
-      operationId: triggerXSS
       summary: Execute seu payload com um clique
-  '/xss/payload/{id}':
-    delete:
+      description: >
+        <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:300px;border:none;"></iframe>
       parameters:
-        - description: >
-            <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:600px;border:none;"></iframe>
-          format: int64
-          in: path
-          name: id
-          required: true
-          type: integer
+        - name: payload
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              xss:
+                type: string
+                description: >
+                  <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:150px;border:none;"></iframe>
       responses:
         '200':
           description: No response was specified
       tags:
         - executarXSS
-      operationId: deletePayload
+
+  /xss/payload/{id}:
+    delete:
       summary: Remover rastros do payload
+      description: >
+        <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:300px;border:none;"></iframe>
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: >
+            <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:150px;border:none;"></iframe>
+      responses:
+        '200':
+          description: No response was specified
+      tags:
+        - executarXSS
+
+  /xss/manual:
+    get:
+      summary: Digite você mesmo o payload XSS
+      description: >
+        <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:300px;border:none;"></iframe>
+      parameters:
+        - name: payload
+          in: query
+          required: false
+          type: string
+          description: Digite seu payload XSS aqui (ex: <iframe ...>)
+      responses:
+        '200':
+          description: Resultado do seu teste
+      tags:
+        - executarXSS
+
 definitions:
-  '':  # Pode ser removido se quiser evitar warnings de validadores
-    properties:
-      id:
-        format: int64
-        type: integer
-      name:
-        type: string
   Payload:
     properties:
       id:
-        format: int64
-        type: integer
+        type: string
+        description: >
+          <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:100px;border:none;"></iframe>
       name:
         type: string
+        description: >
+          <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:100px;border:none;"></iframe>
+
 securityDefinitions:
   basicAuth:
     type: basic
+
 tags:
   - name: executarXSS
     description: >
