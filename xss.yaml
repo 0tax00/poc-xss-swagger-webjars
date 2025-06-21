@@ -26,8 +26,7 @@ paths:
             properties:
               xss:
                 type: string
-                description: >
-                  <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:150px;border:none;"></iframe>
+                description: "<iframe src='https://supermario-game.com/mario-game/mario.html' style='width:100%;height:150px;border:none;'></iframe>"
       responses:
         '200':
           description: No response was specified
@@ -44,48 +43,4 @@ paths:
           in: path
           required: true
           type: string
-          description: >
-            <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:150px;border:none;"></iframe>
-      responses:
-        '200':
-          description: No response was specified
-      tags:
-        - executarXSS
-
-  /xss/manual:
-    get:
-      summary: Digite você mesmo o payload XSS
-      description: >
-        <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:300px;border:none;"></iframe>
-      parameters:
-        - name: payload
-          in: query
-          required: false
-          type: string
-          description: Digite seu payload XSS aqui (ex: <iframe ...>)
-      responses:
-        '200':
-          description: Resultado do seu teste
-      tags:
-        - executarXSS
-
-definitions:
-  Payload:
-    properties:
-      id:
-        type: string
-        description: >
-          <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:100px;border:none;"></iframe>
-      name:
-        type: string
-        description: >
-          <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:100px;border:none;"></iframe>
-
-securityDefinitions:
-  basicAuth:
-    type: basic
-
-tags:
-  - name: executarXSS
-    description: >
-      <iframe src="https://supermario-game.com/mario-game/mario.html" style="width:100%;height:600px;border:none;"></iframe>
+          description: "<iframe src='https://supermario-game.com/mario-game/mario.html' style='width:100%;height:150px;border:none;'></iframe>"
